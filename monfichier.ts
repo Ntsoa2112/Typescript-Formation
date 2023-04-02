@@ -98,3 +98,34 @@ const listin: {lot: string, [key: string]: string} = {
     ville: "Tana",
     region: "Analamg"
 }
+
+// Typage de fonction simple en TypeScript :
+function addition(a: number, b: number): number {
+  return a + b;
+}
+
+// Typage de fonction en TypeScript qui retourne un objet :
+function createUser(name: string, age: number): {name: string, age: number} {
+  return {
+    name: name,
+    age: age
+  };
+}
+
+// Typage de fonction en TypeScript qui retourne un tableau contenant des objets:
+interface PersonT {
+  name: string;
+  age: number;
+}
+
+function createPeople(names: string[], ages: number[]): PersonT[] {
+  const people: PersonT[] = [];
+  for (let i = 0; i < names.length; i++) {
+    people.push({ name: names[i], age: ages[i] });
+  }
+  return people;
+}
+const names = ["John", "Jane", "Bob"];
+const ages = [30, 25, 40];
+const people = createPeople(names, ages);
+console.log(people); // [{ name: "John", age: 30 }, { name: "Jane", age: 25 }, { name: "Bob", age: 40 }]
