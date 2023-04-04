@@ -129,3 +129,26 @@ const names = ["John", "Jane", "Bob"];
 const ages = [30, 25, 40];
 const people = createPeople(names, ages);
 console.log(people); // [{ name: "John", age: 30 }, { name: "Jane", age: 25 }, { name: "Bob", age: 40 }]
+
+
+interface Calculator {
+  (num1: number, num2: number): number;
+}
+
+function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+
+function subtract(num1: number, num2: number): number {
+  return num1 - num2;
+}
+
+// La fonction calculator prend en paramètre une fonction de type Calculator
+function calculator(operation: Calculator, num1: number, num2: number): number {
+  return operation(num1, num2);
+}
+
+
+// Utilisation de la fonction calculator avec différentes opérations
+console.log(calculator(add, 5, 3)); // Output: 8
+console.log(calculator(subtract, 10, 4)); // Output: 6
